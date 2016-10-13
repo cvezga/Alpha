@@ -1,0 +1,9 @@
+SD-SKILL
+	Skill
+		name:Java Core
+	Skill
+		name:QA
+	Skill
+		name:J2EE
+		
+		
