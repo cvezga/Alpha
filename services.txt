@@ -1,0 +1,1 @@
+register terminal com.gft.alpa.service.terminal.TerminalService

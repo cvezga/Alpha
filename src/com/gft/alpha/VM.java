@@ -1,6 +1,7 @@
 package com.gft.alpha;
 
-import com.gft.alpha.command.CommandManager;
+import com.gft.alpha.commad.CommandManager;
+import com.gft.alpha.commad.CommandProcesor;
 
 public class VM {
 
@@ -14,9 +15,23 @@ public class VM {
 			System.exit(1);
 		}
 		
-		CommandManager cmdMgr = new CommandManager();
+		CommandManager cmdMng = new CommandManager();
+		CommandProcesor cmdP  = new CommandProcesor(cmdMng);
 		
-		cmdMgr.processCommandFile(args[0]);
+		cmdP.processCommandFile(args[0]);
 		
+		
+		loop();
+	}
+
+	private static void loop() {
+		while(true){
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 }
