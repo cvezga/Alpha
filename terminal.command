@@ -1,4 +1,4 @@
-import services.txt
+import services.command
 
 set vmname Cesar-Terminal-Test-VM-1
 

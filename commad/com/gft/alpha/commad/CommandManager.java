@@ -5,6 +5,8 @@ import java.util.Map;
 
 public class CommandManager {
 	
+	private static CommandManager instance;
+	
 	private Map<String, AlphaCommand> commandMap;
 	
 	public CommandManager(){
@@ -16,6 +18,7 @@ public class CommandManager {
 		register(new ContextCommand());
 		register(new StartCommand());
 		register(new RegisterCommand());
+		register(new ExitCommand());
 		
 	}
 
@@ -33,6 +36,13 @@ public class CommandManager {
 		
 		return "ERROR: unknown command "+cmdName;
 		
+	}
+
+	public static CommandManager getInstance() {
+		if(instance==null){
+			instance = new CommandManager();
+		}
+		return instance;
 	}
 	
 	
