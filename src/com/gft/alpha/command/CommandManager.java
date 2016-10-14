@@ -11,7 +11,8 @@ public class CommandManager {
 	
 	private static Map<String, Command> commandMap = new HashMap<>();
 	static {
-		commandMap.put("vmname", new VmNameCommand());
+		register(new VmNameCommand());
+		register(new DataLoaderCommand());
 		commandMap.put("load", new DataLoaderCommand());
 	}
 	
@@ -25,6 +26,11 @@ public class CommandManager {
 		}
 	}
 	
+	private static void register(Command cmd) {
+		commandMap.put(cmd.getCommandNamme(), cmd);
+		
+	}
+
 	public void processCommandFile(String fileName){
 		try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
 
@@ -37,7 +43,7 @@ public class CommandManager {
 
 	private Object processCommand(String line) {
 		line=line.trim();
-		if(line.length()==0) return null;
+		if(line.length()==0 || line.startsWith("#")) return null;
 		String[] data = line.split(" ");
 		String cmd = data[0];
 		runCommand(cmd, line);

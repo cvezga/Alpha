@@ -11,4 +11,9 @@ public class VmNameCommand implements Command {
 		System.out.println("VM-NAME: "+vmname);
 	}
 
+	@Override
+	public String getCommandNamme() {
+		return "vmname";
+	}
+
 }

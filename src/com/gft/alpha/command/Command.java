@@ -1,7 +1,9 @@
 package com.gft.alpha.command;
 
 public interface Command {
+	
+	String getCommandNamme();
 
-	public void run(String commandInstruction);
+	 void run(String commandInstruction);
 
 }

@@ -14,4 +14,9 @@ public class DataLoaderCommand implements Command {
 		loader.loadData(fileName);
 	}
 
+	@Override
+	public String getCommandNamme() {
+		return "load";
+	}
+
 }
