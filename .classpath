@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="entitySeq"/>
 	<classpathentry kind="src" path="commad"/>
 	<classpathentry kind="src" path="terminal"/>
 	<classpathentry kind="src" path="test"/>
