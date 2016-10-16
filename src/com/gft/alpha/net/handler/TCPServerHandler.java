@@ -13,6 +13,7 @@ public class TCPServerHandler implements Runnable {
 	static {
 		register(new MonitorResponseProtocolHandler());
 		register(new MonitorQueryHandler());
+		register(new QueryServiceHandler());
 		
 		
 	}

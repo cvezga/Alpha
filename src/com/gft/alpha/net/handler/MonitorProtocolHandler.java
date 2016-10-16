@@ -21,7 +21,7 @@ public class MonitorProtocolHandler implements ProtocolHandler {
 		String ip = tokens[1];
 		int port = Integer.parseInt(tokens[2]);
 		
-		TCPUtil.send(ip,port,"monitor-response:"+Context.vmname+":"+Context.ip);
+		TCPUtil.send(ip,port,"monitor-response:"+Context.vmname+":"+Context.ip+":"+Context.port);
 		
 		return "OK";
 	}

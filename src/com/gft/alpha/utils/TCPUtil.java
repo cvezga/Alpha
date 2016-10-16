@@ -16,6 +16,7 @@ public class TCPUtil {
 	public static void writeSocket(Socket sc, String queryResponse) {
 		try {
 			sc.getOutputStream().write(queryResponse.getBytes());
+			sc.getOutputStream().flush();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

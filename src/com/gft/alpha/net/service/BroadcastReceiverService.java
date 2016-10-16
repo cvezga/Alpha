@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.gft.alpha.net.handler.MonitorProtocolHandler;
 import com.gft.alpha.net.handler.ProtocolHandler;
+import com.gft.alpha.net.handler.SubcriptionRequestProtocolHandler;
 import com.gft.alpha.net.udp.UDPBroadcastReceiver;
 
 
@@ -12,9 +13,17 @@ public class BroadcastReceiverService implements AlphaService {
 	
 	private static Map<String,ProtocolHandler> protocolMap = new HashMap<>();
 	static {
+		register(new MonitorProtocolHandler());
+		register(new SubcriptionRequestProtocolHandler());
 		protocolMap.put("monitor", new MonitorProtocolHandler());
+		protocolMap.put("subscription-request", new SubcriptionRequestProtocolHandler());
 	}
+
 	
+	private static void register(ProtocolHandler ph) {
+		protocolMap.put(ph.getProtocolIdentifier(), ph);
+		
+	}
 	private int port;
 
 	@Override
@@ -30,6 +39,8 @@ public class BroadcastReceiverService implements AlphaService {
 			sleep(100);
 		}
 	}
+
+
 
 	private void sleep(int millis) {
 		try {
