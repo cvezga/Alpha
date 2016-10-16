@@ -13,6 +13,7 @@ public class QueryServiceCommand implements AlphaCommand {
 		QueryService qs = new QueryService(source, queryHandlerClass);
 		Context.qsMap.put(source, qs);
 		Context.sourceList.add(source);
+		System.out.println("Query Service Source "+source+" registered");
 		return "Query Service Source "+source+" registered";
 	}
 

@@ -1,10 +1,7 @@
 package com.gft.alpha.net.handler;
 
-import java.util.concurrent.locks.AbstractQueuedLongSynchronizer.ConditionObject;
-
 import com.gft.alpha.Context;
 import com.gft.alpha.utils.TCPUtil;
-import com.sun.javafx.collections.SortableList;
 
 public class SubcriptionRequestProtocolHandler implements ProtocolHandler {
 
@@ -15,6 +12,7 @@ public class SubcriptionRequestProtocolHandler implements ProtocolHandler {
 
 	@Override
 	public String process(String data) {
+		System.out.println(data);
 		String[] tkns = data.split(":");
 		
 		String protocol = tkns[0];
