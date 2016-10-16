@@ -1,7 +1,6 @@
-package com.gft.alpha.handler;
+package com.gft.alpha.net.handler;
 
 import com.gft.alpha.bo.EntitySeqBO;
-import com.gft.alpha.net.ProtocolHandler;
 
 public class EntitySeqHandler implements ProtocolHandler {
 	

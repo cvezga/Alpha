@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import com.gft.alpha.service.AlphaService;
+import com.gft.alpha.net.service.AlphaService;
 
 public class TerminalService implements AlphaService {
 

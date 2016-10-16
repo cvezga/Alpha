@@ -1,4 +1,4 @@
-package com.gft.alpha.service;
+package com.gft.alpha.net.service;
 
 public interface AlphaService extends Runnable {
 

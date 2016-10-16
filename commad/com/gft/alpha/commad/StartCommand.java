@@ -1,7 +1,7 @@
 package com.gft.alpha.commad;
 
 import com.gft.alpha.Context;
-import com.gft.alpha.service.AlphaService;
+import com.gft.alpha.net.service.AlphaService;
 
 public class StartCommand implements AlphaCommand {
 

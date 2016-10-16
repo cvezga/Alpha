@@ -1,7 +1,6 @@
-package com.gft.alpha.handler;
+package com.gft.alpha.net.handler;
 
 import com.gft.alpha.Context;
-import com.gft.alpha.net.ProtocolHandler;
 import com.gft.alpha.vo.VirtualMachine;
 
 public class MonitorQueryHandler  implements ProtocolHandler {

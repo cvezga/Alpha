@@ -1,5 +1,5 @@
 
-package com.gft.alpha.service;
+package com.gft.alpha.net.service;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

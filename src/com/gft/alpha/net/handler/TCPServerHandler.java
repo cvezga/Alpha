@@ -1,11 +1,10 @@
-package com.gft.alpha.handler;
+package com.gft.alpha.net.handler;
 
 import java.io.IOException;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.gft.alpha.net.ProtocolHandler;
 import com.gft.alpha.utils.TCPUtil;
 
 public class TCPServerHandler implements Runnable {

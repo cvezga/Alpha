@@ -1,10 +1,10 @@
-package com.gft.alpha.service;
+package com.gft.alpha.net.service;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import com.gft.alpha.handler.TCPServerHandler;
+import com.gft.alpha.net.handler.TCPServerHandler;
 
 public class TCPServerService implements AlphaService {
 

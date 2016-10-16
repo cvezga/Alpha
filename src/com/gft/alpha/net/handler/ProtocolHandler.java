@@ -1,4 +1,4 @@
-package com.gft.alpha.net;
+package com.gft.alpha.net.handler;
 
 
 public interface ProtocolHandler {
