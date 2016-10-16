@@ -11,7 +11,9 @@ public class TCPServerHandler implements Runnable {
 	
 	private static Map<String, ProtocolHandler> phMap = new HashMap<>();
 	static {
+		register(new MonitorResponseProtocolHandler());
 		register(new MonitorQueryHandler());
+		
 		
 	}
 	
@@ -44,7 +46,7 @@ public class TCPServerHandler implements Runnable {
 		
 		ProtocolHandler ph = phMap.get(protocol);
 		if(ph==null){
-			System.out.println("Protocol not supported: "+protocol);
+			System.out.println("TCPServerHandler: Protocol not supported: "+protocol);
 		}else{
 		
 			String outconme = ph.process(data);

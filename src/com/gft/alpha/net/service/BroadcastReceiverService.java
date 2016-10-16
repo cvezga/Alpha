@@ -51,7 +51,7 @@ public class BroadcastReceiverService implements AlphaService {
 			String outcome = ph.process(data);
 			System.out.println(outcome);
 		}else{
-			System.out.println("Protocol "+protocolId+" not supported");
+			System.out.println("BroadcastReceiverService: Protocol "+protocolId+" not supported");
 		}
 	
 		

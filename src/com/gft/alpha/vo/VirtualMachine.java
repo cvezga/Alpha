@@ -26,5 +26,18 @@ public class VirtualMachine {
 	public void setIp(String ip) {
 		this.ip = ip;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null) return false;
+		if(!(obj instanceof VirtualMachine)) return false;
+		VirtualMachine vm = (VirtualMachine)obj;
+		return this.name.equals(vm.getName());
+	}
+	
+	@Override
+	public int hashCode() {
+		return name.hashCode();
+	}
 
 }
