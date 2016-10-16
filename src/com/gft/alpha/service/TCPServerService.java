@@ -4,27 +4,27 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import com.gft.alpha.net.TCPRunnable;
+import com.gft.alpha.handler.TCPServerHandler;
 
-public abstract class AbsrtactTCPServerService implements AlphaService {
+public class TCPServerService implements AlphaService {
 
+	
+	private int port;
 	
 	@Override
 	public void run() {
 
 		ServerSocket ssc;
 		try {
-			ssc = new ServerSocket(getPort());
+			ssc = new ServerSocket(this.port);
 			while (true) {
 				try {
 
 					Socket sc = ssc.accept();
 					
-					TCPRunnable r = getRunnable();
+					TCPServerHandler h = new TCPServerHandler(sc);
 					
-					r.setSocket(sc);
-
-					Thread t = new Thread(r);
+					Thread t = new Thread(h);
 					t.start();
 
 				} catch (IOException e) {
@@ -39,8 +39,11 @@ public abstract class AbsrtactTCPServerService implements AlphaService {
 	}
 
 
-	abstract  TCPRunnable getRunnable();
-	
-	abstract  int getPort();
+
+	@Override
+	public void init(String[] args) {
+		this.port = Integer.parseInt(args[2]);
+		
+	}
 
 }

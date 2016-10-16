@@ -3,6 +3,7 @@ package com.gft.alpha.utils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class TCPUtil {
 
@@ -36,13 +37,30 @@ public class TCPUtil {
 			}
 			cmdLine = sb.toString();
 			int idx = cmdLine.lastIndexOf(finalChar);
-			cmdLine = cmdLine.substring(0, idx);
+			if(idx>-1){
+			    cmdLine = cmdLine.substring(0, idx);
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		 return cmdLine;
+		
+	}
+
+	public static void send(String host, int port, String message) {
+		try {
+			Socket sc = new Socket(host, port);
+			writeSocket(sc, message);
+			sc.close();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
