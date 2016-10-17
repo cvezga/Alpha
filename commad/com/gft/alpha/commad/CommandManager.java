@@ -20,6 +20,7 @@ public class CommandManager {
 		register(new RegisterCommand());
 		register(new ProvideServiceCommand());
 		register(new ExitCommand());
+		register(new ShowDataCommand());
 		
 	}
 

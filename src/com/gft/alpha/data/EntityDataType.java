@@ -1,5 +1,6 @@
 package com.gft.alpha.data;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -17,6 +18,7 @@ public class EntityDataType {
 	public EntityDataType(String name) {
 		super();
 		this.name = name;
+		this.tagMap = new HashMap<>();
 	}
 
 	public String getName() {
@@ -45,9 +47,9 @@ public class EntityDataType {
 
 	public Object asString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("edt: ").append(this.name);
+		sb.append("\tentityId:").append(this.id).append(", edt: ").append(this.name).append("\n");
 		for(Entry<String,String> entry : this.tagMap.entrySet()){
-			sb.append(entry.getKey()).append(":").append(entry.getValue()).append(",");
+			sb.append("\t\t"+entry.getKey()).append(":").append(entry.getValue()).append("\n");
 		}
 		return sb.toString();
 	}

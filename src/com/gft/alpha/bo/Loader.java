@@ -28,6 +28,8 @@ public class Loader {
 	
 	public void loadData(String dataFile){
 		
+		System.out.println("Loading data "+dataFile);
+		
 		try (Stream<String> stream = Files.lines(Paths.get(dataFile))) {
 
 			stream.forEach( line -> process(line) );
@@ -35,7 +37,11 @@ public class Loader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-				
+
+		if(this.source!=null){
+			DataMap.save(this.source);
+		}
+		
 	}
 
 
@@ -70,19 +76,16 @@ public class Loader {
 
 
 	private void processEDT(String line) {
-		if(edt!=null){
-			this.source.addEDT(edt);
-		}
-		String name = line.replaceAll("\t", "").trim();
+		String name = line.replaceAll(">", "").trim();
 		
 		this.edt = new EntityDataType(name);
-		
+		this.source.addEDT(edt);
 		
 	}
 
 
 	private void processTag(String line) {
-		line = line.replaceAll("\t", "").trim();
+		line = line.replaceAll(">", "").trim();
 		int idx = line.indexOf(":");
 		String field = line.substring(0, idx);
 		String value = line.substring(idx+1).trim();
@@ -95,9 +98,9 @@ public class Loader {
 	private int getLineLevel(String line) {
 		int level = 0;
 		
-		int idx=0;
+		int idx=-1;
 		while(true){
-			idx = line.indexOf("/t",idx);
+			idx = line.indexOf(">",idx+1);
 			if(idx>-1){
 				level++;
 			}else{

@@ -1,6 +1,7 @@
 package com.gft.alpha.data;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Source {
@@ -9,14 +10,14 @@ public class Source {
 
 	private String name;
 	
-	private Map<String, EntityDataType> edtMap;
+	private List<EntityDataType> edtList;
 	
 	
 
 	public Source(String name) {
 		super();
 		this.name = name;
-		this.edtMap = new HashMap<>();
+		this.edtList = new ArrayList<>();
 	}
 
 	public String getName() {
@@ -27,12 +28,12 @@ public class Source {
 		this.name = name;
 	}
 
-	public Map<String, EntityDataType> getEdtMap() {
-		return edtMap;
+	public List<EntityDataType> getEdtList() {
+		return edtList;
 	}
 
-	public void setEdtMap(Map<String, EntityDataType> edtMap) {
-		this.edtMap = edtMap;
+	public void setEdtList(List<EntityDataType> edtList) {
+		this.edtList = edtList;
 	}
 
 	public long getId() {
@@ -45,15 +46,15 @@ public class Source {
 
 	public void addEDT(EntityDataType edt) {
 		edt.setId(EntitySequencer.getNextEntityId());
-		this.edtMap.put(edt.getName(),edt);
+		this.edtList.add(edt);
 		
 	}
 
 	public String asString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("sourceName:").append(this.name);
-		for(EntityDataType edt : this.edtMap.values()){
-			sb.append(edt.asString());
+		sb.append("entityId:").append(this.id).append(", sourceName:").append(this.name).append("\n");
+		for(EntityDataType edt : this.edtList){
+			sb.append(edt.asString()).append("\n");
 		}
 		return sb.toString();
 	}

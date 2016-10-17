@@ -8,6 +8,8 @@ register tcpserver com.gft.alpha.net.service.TCPServerService
 register pulse com.gft.alpha.net.service.PulseService
 register terminal com.gft.alpa.service.terminal.TerminalService
 
+load skill.txt
+
 provide-service Q-SKILL-SERVICE com.gft.alpha.net.handler.QueryServiceHandler
 
 start broadcastTransmiter 192.168.1.255 5000 5009 3000 SUBSCRIBE:S-PULSE-SERVICE:192.168.1.83:5003;

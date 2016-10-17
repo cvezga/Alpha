@@ -8,6 +8,7 @@ register tcpserver com.gft.alpha.net.service.TCPServerService
 register pulse com.gft.alpha.net.service.PulseService
 register terminal com.gft.alpa.service.terminal.TerminalService
 
+load team.txt
 
 provide-service Q-TEAM-SERVICE com.gft.alpha.net.handler.QueryServiceHandler
 
