@@ -14,6 +14,7 @@ public class BroadcastTransmiterService implements AlphaService {
 	private String broadcastIp;
 	private int portStart;
 	private int portEnd;
+	private long interval;
 	private String message;
 
 	private static void getip() {
@@ -57,13 +58,13 @@ public class BroadcastTransmiterService implements AlphaService {
 					sleep(100);
 				}
 
-				sleep(5000);
+				sleep(interval);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		System.out.println("DOne");
+		System.out.println("Done");
 
 	}
 
@@ -82,7 +83,8 @@ public class BroadcastTransmiterService implements AlphaService {
 		broadcastIp = args[2];
 		portStart = Integer.parseInt(args[3]);
 		portEnd = Integer.parseInt(args[4]);
-		message = args[5];
+		interval = Integer.parseInt(args[5]);
+		message = args[6];
 	}
 
 }

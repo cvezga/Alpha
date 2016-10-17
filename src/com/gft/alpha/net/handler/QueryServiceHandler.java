@@ -14,7 +14,7 @@ public class QueryServiceHandler implements ProtocolHandler {
 	public String process(String data) {
 		String outcome = null;
 		String source = data;
-		QueryService qs = Context.qsMap.get(source);
+		QueryService qs = Context.providedServiceMap.get(source);
 		if(qs!=null){
 			String handlerClassName = qs.getQueryHandlerClass();
 			try {

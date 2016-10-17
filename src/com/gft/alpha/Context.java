@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.gft.alpha.vo.QueryService;
+import com.gft.alpha.vo.ServiceProvider;
 import com.gft.alpha.vo.VirtualMachine;
 
 public class Context {
@@ -23,8 +24,11 @@ public class Context {
     
     public static List<String> sourceList = Collections.synchronizedList( new ArrayList<>());
     
-    public static Map<String, QueryService> qsMap = Collections.synchronizedMap( new HashMap<>());
+    public static Map<String, QueryService> providedServiceMap = Collections.synchronizedMap( new HashMap<>());
     
+    public static Map<String, List<QueryService>> subscriptionMap = Collections.synchronizedMap( new HashMap<>());
     
+    public static Map<String, List<ServiceProvider>> serviceProviderMap = Collections.synchronizedMap( new HashMap<>());
 
+    public static Map<String,String> pulseMap  = Collections.synchronizedMap( new HashMap<>());
 }

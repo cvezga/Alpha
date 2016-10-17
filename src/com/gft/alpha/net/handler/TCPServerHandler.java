@@ -12,9 +12,10 @@ public class TCPServerHandler implements Runnable {
 	private static Map<String, ProtocolHandler> phMap = new HashMap<>();
 	static {
 		register(new MonitorResponseProtocolHandler());
-		register(new MonitorQueryHandler());
+		register(new MonitorQueryServiceHandler());
 		register(new QueryServiceHandler());
-		
+		register(new RegisterServiceProviderHandler());
+		register(new PulseServiceHandler());
 		
 	}
 	

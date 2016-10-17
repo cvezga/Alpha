@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.List;
+
+import com.gft.alpha.Context;
+import com.gft.alpha.vo.ServiceProvider;
 
 public class TCPUtil {
 
@@ -63,6 +67,37 @@ public class TCPUtil {
 			e.printStackTrace();
 		}
 		
+	}
+
+	public static String sendAndReceive(String host, int port, String message) {
+		String response = null;
+		try {
+			Socket sc = new Socket(host, port);
+			sc.setSoTimeout(5000);
+			writeSocket(sc, message);
+			response = readSocket(sc);
+			sc.close();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return response;
+	}
+
+	public static void sendToService(String serviceName, String message) {
+		List<ServiceProvider> spList = Context.serviceProviderMap.get(serviceName);
+		if(spList!=null){
+			for(ServiceProvider sp : spList){
+				send(sp.getHost(), sp.getPort(), message);
+			}
+		}else{
+			System.out.println("No service provider registered for "+serviceName);
+		}
 	}
 	
 }

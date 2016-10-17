@@ -18,7 +18,7 @@ public class CommandManager {
 		register(new ContextCommand());
 		register(new StartCommand());
 		register(new RegisterCommand());
-		register(new QueryServiceCommand());
+		register(new ProvideServiceCommand());
 		register(new ExitCommand());
 		
 	}
