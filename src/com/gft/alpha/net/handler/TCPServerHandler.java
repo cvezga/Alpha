@@ -16,6 +16,8 @@ public class TCPServerHandler implements Runnable {
 		register(new QueryServiceHandler());
 		register(new RegisterServiceProviderHandler());
 		register(new PulseServiceHandler());
+		register(new EntitySeqHandler());
+		
 		
 	}
 	

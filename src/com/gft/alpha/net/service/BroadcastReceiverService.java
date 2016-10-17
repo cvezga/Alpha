@@ -3,7 +3,6 @@ package com.gft.alpha.net.service;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.gft.alpha.net.handler.MonitorProtocolHandler;
 import com.gft.alpha.net.handler.ProtocolHandler;
 import com.gft.alpha.net.handler.SubcriptionResponseProtocolHandler;
 import com.gft.alpha.net.udp.UDPBroadcastReceiver;
@@ -13,7 +12,7 @@ public class BroadcastReceiverService implements AlphaService {
 	
 	private static Map<String, ProtocolHandler> protocolMap = new HashMap<>();
 	static {
-		register(new MonitorProtocolHandler());
+		//register(new MonitorProtocolHandler());
 		register(new SubcriptionResponseProtocolHandler());
 	}
 

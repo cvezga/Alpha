@@ -12,7 +12,6 @@ public class SubcriptionResponseProtocolHandler implements ProtocolHandler {
 
 	@Override
 	public String process(String data) {
-		System.out.println(data);
 		String[] tkns = data.split(":");
 		
 		String protocol = tkns[0];
@@ -20,11 +19,12 @@ public class SubcriptionResponseProtocolHandler implements ProtocolHandler {
 		String ip = tkns[2];
 		int port = Integer.parseInt(tkns[3]);
 		
-		//if(!Context.subscriptionMap.keySet().contains(service)){
-		TCPUtil.send(ip, port, "REGISTER-SERVICE:"+service+":"+Context.ip+":"+Context.port+";");
-		//}
+		if(Context.providedServiceMap.keySet().contains(service)){
+		   TCPUtil.send(ip, port, "REGISTER-SERVICE:"+service+":"+Context.ip+":"+Context.port+";");
+		   System.out.println("Sent provided service "+service+"  to "+ip+":"+port);
+		}
 		
-		return "Register service response sent to "+ip+":"+port;
+		return "OK";
 	}
 
 }
