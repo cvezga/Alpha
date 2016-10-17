@@ -26,7 +26,7 @@ public class TerminalProtocol implements Runnable {
 	public void run() {
 		this.running = true;
 		System.out.println("Terminal connected....");
-		TCPUtil.writeSocket(sc, "\nConnected to VM: "+Context.vmname);
+		TCPUtil.writeSocket(sc, "\nConnected to VM: "+Context.getString("vmname"));
 		while(this.running){
 			TCPUtil.writeSocket(sc, "\nCommand?: ");
 			String input = TCPUtil.readSocket(sc,"\r\n");

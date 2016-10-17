@@ -20,7 +20,7 @@ public class SubcriptionResponseProtocolHandler implements ProtocolHandler {
 		int port = Integer.parseInt(tkns[3]);
 		
 		if(Context.providedServiceMap.keySet().contains(service)){
-		   TCPUtil.send(ip, port, "REGISTER-SERVICE:"+service+":"+Context.ip+":"+Context.port+";");
+		   TCPUtil.send(ip, port, "REGISTER-SERVICE:"+service+":"+Context.getString("ip")+":"+Context.getString("port")+";");
 		   System.out.println("Sent provided service "+service+"  to "+ip+":"+port);
 		}
 		

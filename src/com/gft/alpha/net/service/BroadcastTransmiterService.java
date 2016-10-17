@@ -1,13 +1,11 @@
-
 package com.gft.alpha.net.service;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.util.Enumeration;
+
+import com.gft.alpha.Context;
 
 public class BroadcastTransmiterService implements AlphaService {
 
@@ -17,6 +15,7 @@ public class BroadcastTransmiterService implements AlphaService {
 	private long interval;
 	private String message;
 
+	/**
 	private static void getip() {
 		String ip;
 		try {
@@ -37,25 +36,26 @@ public class BroadcastTransmiterService implements AlphaService {
 		} catch (SocketException e) {
 			throw new RuntimeException(e);
 		}
-	}
+	}**/
 
 	@Override
 	public void run() {
 		InetAddress sendAddress;
 		try {
 
-			getip();
+			//getip();
 
 			sendAddress = InetAddress.getByName(broadcastIp);
 
-			while (true) {
+			while (!isServiceProviderRegistered()) {
 				for (int p = portStart; p <= portEnd; p++) {
 					DatagramSocket dsock = new DatagramSocket();
 					byte[] send = this.message.getBytes("UTF-8");
 					DatagramPacket data = new DatagramPacket(send, send.length, sendAddress, p);
 					dsock.send(data);
+					System.out.println("Broadcasting "+this.message+" to "+p);
+					sleep(1000);
 					dsock.close();
-					sleep(100);
 				}
 
 				sleep(interval);
@@ -64,8 +64,15 @@ public class BroadcastTransmiterService implements AlphaService {
 			e.printStackTrace();
 		}
 
-		System.out.println("Done");
+		System.out.println("Ended boardcast for "+message);
 
+	}
+
+	private boolean isServiceProviderRegistered() {
+		String[] args = this.message.split(":");
+		String service = args[1];
+		
+		return Context.serviceProviderMap.keySet().contains(service);
 	}
 
 	private void sleep(long millis) {

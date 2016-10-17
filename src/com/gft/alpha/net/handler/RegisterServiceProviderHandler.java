@@ -15,6 +15,8 @@ public class RegisterServiceProviderHandler implements ProtocolHandler {
 
 	@Override
 	public String process(String data) {
+		
+		System.out.println("Register service request: "+data);
 		String[] tkns = data.split(":");
 		
 		String protocol = tkns[0];
@@ -32,7 +34,9 @@ public class RegisterServiceProviderHandler implements ProtocolHandler {
 		
 		if(!spList.contains(sp)){
 			spList.add(sp);
-			System.out.println("Registered service provider: "+sp.toString());
+			System.out.println("Service provider registered: "+sp.toString());
+		}else{
+			System.out.println("Service provider alreay registered: "+sp.toString());
 		}
 		
 		return "RegisterServiceProviderHandler: OK";

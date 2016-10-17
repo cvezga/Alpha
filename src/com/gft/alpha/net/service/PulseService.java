@@ -12,7 +12,7 @@ public class PulseService implements AlphaService {
 		
 		while(true){
 		
-			TCPUtil.sendToService("S-PULSE-SERVICE","S-PULSE-SERVICE:"+Context.vmname+":"+Context.ip+":"+Context.port);
+			TCPUtil.sendToService("S-PULSE-SERVICE","S-PULSE-SERVICE:"+Context.getString("vmname")+":"+Context.getString("ip")+":"+Context.getString("port"));
 			
 			sleep(sleepTime);
 		}

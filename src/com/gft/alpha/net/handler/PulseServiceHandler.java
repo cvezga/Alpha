@@ -7,7 +7,7 @@ import com.gft.alpha.Context;
 
 public class PulseServiceHandler  implements ProtocolHandler {
 
-	private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH'mm'ss.sss");
+	private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH;mm;ss.sss");
 	
 	@Override
 	public String getProtocolIdentifier() {
