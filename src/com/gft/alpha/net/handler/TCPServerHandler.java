@@ -44,6 +44,8 @@ public class TCPServerHandler implements Runnable {
 		
 		String data = TCPUtil.readSocket(sc);
 		
+		System.out.println(data);
+		
 		int idx = data.indexOf(":");
 		
 		String protocol = data.substring(0,idx);

@@ -8,7 +8,7 @@ register tcpserver com.gft.alpha.net.service.TCPServerService
 register pulse com.gft.alpha.net.service.PulseService
 register terminal com.gft.alpa.service.terminal.TerminalService
 
-load skill.txt
+load role.txt
 
 provide-service Q-ROLE-SERVICE com.gft.alpha.net.handler.QueryServiceHandler
 
