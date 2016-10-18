@@ -21,7 +21,8 @@ public class CommandManager {
 		register(new ProvideServiceCommand());
 		register(new ExitCommand());
 		register(new ShowDataCommand());
-		
+		register(new ServicesCommand());
+		register(new SubscriptionsCommand());
 	}
 
 	private void register(AlphaCommand cmd) {

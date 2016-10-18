@@ -1,5 +1,5 @@
 set vmname Monitor-VM
-set ip 10.230.20.21
+set ip 192.168.255.40
 set port 5000
 
 register broadcastTransmiter com.gft.alpha.net.service.BroadcastTransmiterService
@@ -11,7 +11,7 @@ register terminal com.gft.alpa.service.terminal.TerminalService
 provide-service S-PULSE-SERVICE com.gft.alpha.net.handler.PulseServiceHandler
 provide-service Q-MONITOR-SERVICE com.gft.alpha.net.handler.MonitorQueryServiceHandler
 
-start broadcastTransmiter 192.168.1.255 5000 5009 3000 SUBSCRIBE:S-PULSE-SERVICE:192.168.1.83:5000;
+start broadcastTransmiter 192.168.255.255 5000 5009 3000 SUBSCRIBE:S-PULSE-SERVICE:192.168.255.40:5000;
 start broadcastReceiver 5000
 start tcpserver 5000
 start pulse 15000

@@ -1,0 +1,1 @@
+start java -cp "..\bin\alpha.jar" com.gft.alpha.VM ..\commands\sequencer.command
