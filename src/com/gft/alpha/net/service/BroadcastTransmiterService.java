@@ -88,10 +88,10 @@ public class BroadcastTransmiterService implements AlphaService {
 	public void init(String[] args) {
 		
 		broadcastIp = getBoardcatIp();
-		portStart = Integer.parseInt(args[2]);
-		portEnd = Integer.parseInt(args[3]);
-		interval = Integer.parseInt(args[4]);
-		message = args[5] +":"+Context.getString("ip")+":"+Context.getString("port")+";";
+		portStart = Context.getInteger("udpPortMin");
+		portEnd = Context.getInteger("udpPortMax");
+		interval = Integer.parseInt(args[2]);
+		message = args[3] +":"+Context.getString("ip")+":"+Context.getString("port")+";";
 	}
 
 	private String getBoardcatIp() {
