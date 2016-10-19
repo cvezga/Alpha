@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import com.gft.alpha.Context;
 import com.gft.alpha.net.handler.TCPServerHandler;
 
 public class TCPServerService implements AlphaService {
@@ -42,7 +43,7 @@ public class TCPServerService implements AlphaService {
 
 	@Override
 	public void init(String[] args) {
-		this.port = Integer.parseInt(args[2]);
+		this.port = Context.getInteger("port");
 		
 	}
 

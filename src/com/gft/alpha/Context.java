@@ -49,7 +49,7 @@ public class Context {
     }
     
     public static Integer getInteger(String key){
-    	return (Integer)get(key);
+    	return Integer.parseInt(getString(key));
     }
     
     public static Long getLong(String key){

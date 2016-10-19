@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import com.gft.alpha.Context;
 import com.gft.alpha.net.service.AlphaService;
 
 public class TerminalService implements AlphaService {
@@ -13,8 +14,7 @@ public class TerminalService implements AlphaService {
 
 	@Override
 	public void init(String[] args) {
-		String xport = args[2];
-		this.port = Integer.parseInt(xport);
+		this.port = Context.getInteger("terminalPort");
 
 	}
 

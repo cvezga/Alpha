@@ -3,6 +3,7 @@ package com.gft.alpha.net.service;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.gft.alpha.Context;
 import com.gft.alpha.net.handler.ProtocolHandler;
 import com.gft.alpha.net.handler.SubcriptionResponseProtocolHandler;
 import com.gft.alpha.net.udp.UDPBroadcastReceiver;
@@ -67,8 +68,8 @@ public class BroadcastReceiverService implements AlphaService {
 
 	@Override
 	public void init(String[] args) {
-		String xport = args[2];
-		this.port = Integer.parseInt(xport);
+		 
+		this.port = Context.getInteger("port");
 		
 	}
 

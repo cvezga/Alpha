@@ -53,7 +53,7 @@ public class BroadcastTransmiterService implements AlphaService {
 					byte[] send = this.message.getBytes("UTF-8");
 					DatagramPacket data = new DatagramPacket(send, send.length, sendAddress, p);
 					dsock.send(data);
-					System.out.println("Broadcasting "+this.message+" to "+p);
+					System.out.println("Broadcasting "+this.message+" to "+broadcastIp+":"+p);
 					sleep(1000);
 					dsock.close();
 				}
@@ -86,12 +86,19 @@ public class BroadcastTransmiterService implements AlphaService {
 
 	@Override
 	public void init(String[] args) {
-	 
-		broadcastIp = args[2];
-		portStart = Integer.parseInt(args[3]);
-		portEnd = Integer.parseInt(args[4]);
-		interval = Integer.parseInt(args[5]);
-		message = args[6];
+		
+		broadcastIp = getBoardcatIp();
+		portStart = Integer.parseInt(args[2]);
+		portEnd = Integer.parseInt(args[3]);
+		interval = Integer.parseInt(args[4]);
+		message = args[5] +":"+Context.getString("ip")+":"+Context.getString("port")+";";
+	}
+
+	private String getBoardcatIp() {
+		String ip = Context.getString("ip");
+		int idx = ip.lastIndexOf(".");
+		String bip = ip.substring(0, idx) + ".255";
+		return bip;
 	}
 
 }
