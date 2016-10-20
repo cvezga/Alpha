@@ -14,4 +14,8 @@ public class ExitCommand implements AlphaCommand {
 		return "exit";
 	}
 
+	@Override
+	public String getHelpText() {
+		return "exit: Exit telnet session";
+	}
 }

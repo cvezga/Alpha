@@ -30,5 +30,10 @@ public class ImportCommand implements AlphaCommand {
 	public String getCommandName() {
 		return "import";
 	}
+	
+	@Override
+	public String getHelpText() {
+		return "import: Import a command file into another command file";
+	}
 
 }

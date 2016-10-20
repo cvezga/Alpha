@@ -30,4 +30,9 @@ public class ContextCommand implements AlphaCommand {
 		return "set";
 	}
 
+	@Override
+	public String getHelpText() {
+		return "set: Set a cnotext variable";
+	}
+
 }

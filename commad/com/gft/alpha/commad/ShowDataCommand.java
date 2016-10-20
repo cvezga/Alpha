@@ -14,5 +14,10 @@ public class ShowDataCommand implements AlphaCommand {
 	public String getCommandName() {
 		return "show-data";
 	}
+	
+	@Override
+	public String getHelpText() {
+		return "show-data: Shows VM data";
+	}
 
 }

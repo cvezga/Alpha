@@ -18,4 +18,9 @@ public class SubscriptionsCommand implements AlphaCommand {
 		return "subscriptions";
 	}
 
+	
+	@Override
+	public String getHelpText() {
+		return "subscriptions: Shows current VM's subscription";
+	}
 }

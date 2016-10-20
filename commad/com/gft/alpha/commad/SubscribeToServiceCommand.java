@@ -14,4 +14,9 @@ public class SubscribeToServiceCommand implements AlphaCommand {
 		return "subscribe-to-service";
 	}
 
+	
+	@Override
+	public String getHelpText() {
+		return "subscribe-to-service: Subscribes to an Alpha provided service";
+	}
 }

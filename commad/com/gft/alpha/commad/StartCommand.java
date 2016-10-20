@@ -38,4 +38,9 @@ public class StartCommand implements AlphaCommand {
 		return "start";
 	}
 
+	
+	@Override
+	public String getHelpText() {
+		return "start: Start a VM service";
+	}
 }

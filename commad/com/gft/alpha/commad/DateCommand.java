@@ -19,4 +19,8 @@ public class DateCommand implements AlphaCommand {
 		return COMMAND_NAME;
 	}
 
+	@Override
+	public String getHelpText() {
+		return "date: Shows current date";
+	}
 }

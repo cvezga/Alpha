@@ -21,5 +21,10 @@ public class ProvideServiceCommand implements AlphaCommand {
 	public String getCommandName() {
 		return "provide-service";
 	}
+	
+	@Override
+	public String getHelpText() {
+		return "provide-service: Provide a VM Service";
+	}
 
 }

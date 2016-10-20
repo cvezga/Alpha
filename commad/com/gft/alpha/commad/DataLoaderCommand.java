@@ -21,5 +21,10 @@ public class DataLoaderCommand implements AlphaCommand {
 	public String getCommandName() {
 		return "load";
 	}
+	
+	@Override
+	public String getHelpText() {
+		return "load: Load data into VM";
+	}
 
 }

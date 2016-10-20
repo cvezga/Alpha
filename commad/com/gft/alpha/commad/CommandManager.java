@@ -1,6 +1,9 @@
 package com.gft.alpha.commad;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CommandManager {
@@ -23,6 +26,9 @@ public class CommandManager {
 		register(new ShowDataCommand());
 		register(new ServicesCommand());
 		register(new SubscriptionsCommand());
+		register(new MemoryCommand());
+		register(new GCCommand());
+		register(new HelpCommand(this));
 	}
 
 	private void register(AlphaCommand cmd) {
@@ -46,6 +52,20 @@ public class CommandManager {
 			instance = new CommandManager();
 		}
 		return instance;
+	}
+
+	public String getAllCommandHelpTexts() {
+		StringBuilder sb = new StringBuilder();
+		
+		List<String> keys = new ArrayList(commandMap.keySet());
+		
+		Collections.sort(keys);
+		for(String cmdName : keys){
+			AlphaCommand cmd = commandMap.get(cmdName);
+			sb.append("- ").append(cmd.getHelpText()).append("\n");
+		}
+		
+		return sb.toString();
 	}
 	
 	

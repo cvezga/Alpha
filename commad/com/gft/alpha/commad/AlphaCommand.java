@@ -5,5 +5,7 @@ public interface AlphaCommand {
 	String run(String[] args);
 	
 	String getCommandName();
+	
+	String getHelpText();
 
 }

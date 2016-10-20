@@ -19,5 +19,10 @@ public class RegisterCommand implements AlphaCommand {
 	public String getCommandName() {
 		return "register";
 	}
+	
+	@Override
+	public String getHelpText() {
+		return "register: Register a VM class with alias name";
+	}
 
 }
